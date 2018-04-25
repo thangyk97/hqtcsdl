@@ -4,12 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class CandidateController extends Controller
 {
-
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => ['create',]]);
     }
     /**
      * Display a listing of the resource.
@@ -27,8 +26,8 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   
-        
+    {
+        return view('pages.candidate_register.candidate_register');
     }
 
     /**
