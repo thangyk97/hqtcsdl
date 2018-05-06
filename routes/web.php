@@ -1,9 +1,6 @@
 <?php
 
-
-Route::get('/', function () {
-    return view('pages/home');
-});
+Auth::routes();
 
 Route::get('/home', function() {
     return view('pages/home');
@@ -15,4 +12,13 @@ Route::resources([
     'candidates'    => 'CandidateController'
 ]);
 
-Auth::routes();
+Route::group(['prefix' => '/','middleware' => 'auth'], function () {
+    Route::get('test', 'HomeController@test');
+    // Route::get('', function () {
+    //     return view('pages/home');
+    // });
+});
+
+Route::get('/', function () {
+    return view('pages/home');
+});

@@ -40,7 +40,7 @@ class CandidateController extends Controller
     public function store(Request $request)
     {
         Candidate::store($request);
-        return redirect('/home');
+        return redirect('/login');
     }
 
     /**

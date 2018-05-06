@@ -41,6 +41,7 @@ class CampanyController extends Controller
     public function store(Request $request)
     {
         Campanies::store($request);
+        return redirect('/login');
     }
 
     /**

@@ -4,12 +4,14 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 mx-auto">
-        <h2>About this page</h2>
+
         @if(Auth::check())
             <h1>Ha llo</h1>
         @else
             <h1>Hello</h1>
         @endif
+
+
         <p class="lead">This is a great place to talk about your webpage. This template is purposefully unstyled so you can use it as a boilerplate or starting point for you own landing page designs! This template features:</p>
         <ul>
             <li>Clickable nav links that smooth scroll to page sections</li>

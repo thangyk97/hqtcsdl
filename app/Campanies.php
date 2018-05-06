@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Hash;
 
 class Campanies extends Model
 {
@@ -20,13 +21,14 @@ class Campanies extends Model
         $user->name = $request->name ;
         $user->address = $request->address ;
         $user->email = $request->email ;
-        $user->password = $request->password ;
+        $user->password = Hash::make($request->password) ;
         $user->type = "campany";
         $user->status = "active";
+        $user->role = "campany";
         $user->save();
         
         $campany = new Campanies;
-        $campany->id_campany = User::where('email',$user->email)->first()->id_user;
+        $campany->id_campany = User::where('email',$user->email)->first()->id;
         $campany->description = $request->description;
         $campany->website = $request->website;
         $campany->phone = $request->phone;
