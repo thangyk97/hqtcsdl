@@ -8,21 +8,22 @@
         <div class="col-lg-6 mx-auto">
 
             <!-- Material form login -->
-            <form>
+            <form action="{{url('/login')}}" method="POST">
+                {{ csrf_field() }}
                 <p class="h4 text-center mb-4">Sign in</p>
 
                 <!-- Material input email -->
                 <div class="md-form">
                     <i class="fa fa-envelope prefix grey-text"></i>
                     <label for="materialFormLoginEmailEx">Your email</label>
-                    <input type="email" id="materialFormLoginEmailEx" class="form-control">
+                    <input type="email" name="email" id="materialFormLoginEmailEx" class="form-control">
                 </div>
 
                 <!-- Material input password -->
                 <div class="md-form">
                     <i class="fa fa-lock prefix grey-text"></i>
                     <label for="materialFormLoginPasswordEx">Your password</label>
-                    <input type="password" id="materialFormLoginPasswordEx" class="form-control">
+                    <input type="password" name="password" id="materialFormLoginPasswordEx" class="form-control">
                 </div>
 
                 <div class="text-center mt-4">

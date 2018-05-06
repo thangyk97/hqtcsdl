@@ -1,6 +1,6 @@
 
 <!-- Default form register -->
-<form action="{{url('/campanies')}}" method="post">
+<form action="{{url('/candidates')}}" method="post">
     {{ csrf_field() }}
     <p class="h4 text-center mb-4">Sign up</p>
 

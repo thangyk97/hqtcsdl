@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\Campanies;
 
 class CampanyController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['create',]]);
+        $this->middleware('auth', ['except' => ['create','store',]]);
     }
     /**
      * Display a listing of the resource.
@@ -38,7 +40,7 @@ class CampanyController extends Controller
      */
     public function store(Request $request)
     {
-        print ('blah');
+        Campanies::store($request);
     }
 
     /**

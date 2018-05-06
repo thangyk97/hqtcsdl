@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Candidate;
 
 class CandidateController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['create',]]);
+        $this->middleware('auth', ['except' => ['create', 'store',]]);
     }
     /**
      * Display a listing of the resource.
@@ -38,7 +39,8 @@ class CandidateController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Candidate::store($request);
+        return redirect('/home');
     }
 
     /**

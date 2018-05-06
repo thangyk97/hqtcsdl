@@ -26,28 +26,24 @@
     <input type="text" name='address' class="form-control">
     
     <br>
-    
     <!-- Default input phone -->
     <label class="grey-text">Phone</label>
     <input type="text" name='phone' class="form-control">
     
     <br>
-    
     <!-- Default input website -->
     <label class="grey-text">Website</label>
     <input type="text" name='website' class="form-control">
     
     <br>
-    
     <!-- Default input fax -->
     <label class="grey-text">Fax</label>
     <input type="text" name='fax' class="form-control">
     
     <br>
-
     <div class="form-group">
         <label for="exampleFormControlTextarea3">Description</label>
-        <textarea class="form-control" id="exampleFormControlTextarea3" rows="7"></textarea>
+        <textarea class="form-control" id="exampleFormControlTextarea3" name="description" rows="7"></textarea>
     </div>
 
     <div class="text-center mt-4">
@@ -55,7 +51,6 @@
     </div>
 
     <br>
-
 </form>
 <!-- Default form register -->
                       
