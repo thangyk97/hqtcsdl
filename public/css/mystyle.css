@@ -1,0 +1,8 @@
+header {
+    padding-top: 70px !important; 
+    padding-bottom: 10px !important;
+}
+
+table tbody tr td button {
+    padding: 0;
+}

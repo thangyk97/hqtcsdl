@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @section('content')
-@include('pages.candidate_register.header')
+@include('includes.header')
 <div class="container">
     <div class="row">
         <div class="col-lg-8 mx-auto">
-        @include('pages.candidate_register.form')
+        @include('pages.campany.form')
         </div>
     </div>
 </div>

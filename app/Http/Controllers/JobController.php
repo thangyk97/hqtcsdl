@@ -2,28 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\User;
-use App\Campanies;
+use App\Job;
 use Auth;
+use Illuminate\Http\Request;
 
-class CampanyController extends Controller
+class JobController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth', ['except' => ['create','store',]]);
-    }
-
-
-    public function profile()
-    {
-        $id = Auth::id();
-        $user = User::find($id);
-        $campany = Campanies::where('id_campany', $id)->first();
-
-        return view('pages/campany/profile', compact('user', 'campany'));
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -31,7 +15,8 @@ class CampanyController extends Controller
      */
     public function index()
     {
-        //
+        $jobs = Job::where('id_campany', Auth::id())->get();
+        return view('pages/job/job_index', compact('jobs'));
     }
 
     /**
@@ -41,7 +26,7 @@ class CampanyController extends Controller
      */
     public function create()
     {
-        return view('pages.campany.campany_register');
+        return view('pages/job/job_create');
     }
 
     /**
@@ -52,17 +37,17 @@ class CampanyController extends Controller
      */
     public function store(Request $request)
     {
-        Campanies::store($request);
-        return redirect('/login');
+        Job::store($request);
+        return redirect('/jobs');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Job  $job
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Job $job)
     {
         //
     }
@@ -70,34 +55,34 @@ class CampanyController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Job  $job
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Job $job)
     {
-        //
+        return view('pages/Job/job_update', compact('job'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Job  $job
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Job $job)
     {
-        Campanies::update_($request, $id);
-        return redirect('/campany/profile');
+        Job::update_($request, $job);
+        return redirect('/jobs');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Job  $job
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Job $job)
     {
         //
     }

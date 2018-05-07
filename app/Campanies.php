@@ -35,4 +35,9 @@ class Campanies extends Model
         $campany->fax = $request->fax;
         $campany->save();
     }
+
+    public static function update_($request, $id)
+    {
+        
+    }
 }
